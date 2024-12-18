@@ -1,0 +1,31 @@
+name: 测试
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      # - master
+      # - main
+      - beta
+
+jobs:
+  Publish:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.title, 'Push ')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 部署文件到远程服务器
+        uses: ./
+        with:
+          server-ip: ${{ secrets.SERVER_IP }}
+          server-user: ${{ secrets.SERVER_USER }}
+          server-password: ${{ secrets.SERVER_PASSWORD }}
+          jump-ip: ${{ secrets.JUMP_IP }}
+          jump-user: ${{ secrets.JUMP_USER }}
+          jump-password: ${{ secrets.JUMP_PASSWORD }}
+          remote-path: '/opt/test'
+          files: 'src,package.json'
+          cmd: 'echo "上传完成"'
