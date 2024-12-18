@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 部署文件到远程服务器
-        uses: infinity-public/action-publish@v1
+        uses: ./
         with:
           server-ip: ${{ secrets.SERVER_IP }}
           server-user: ${{ secrets.SERVER_USER }}
