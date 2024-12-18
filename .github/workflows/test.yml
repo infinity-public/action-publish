@@ -28,4 +28,4 @@ jobs:
           jump-password: ${{ secrets.JUMP_PASSWORD }}
           remote-path: '/opt/test'
           files: 'src,package.json'
-          cmd: 'echo "上传完成"'
+          cmd: 'echo "test上传完成"'
