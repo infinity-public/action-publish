@@ -14,7 +14,7 @@ inputs:
     description: 'Path to upload files on the remote server'
     required: true
   files:
-    description: 'List of files and folders to upload, separated by commas'
+    description: 'List of files and folders to upload, separated by commas. Paths must be relative, must not contain "..", and must exist'
     required: true
   cmd:
     description: 'Optional command to execute after upload'
@@ -29,5 +29,5 @@ inputs:
     description: 'Jump server password (optional)'
     required: false
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'lib/index.js'
