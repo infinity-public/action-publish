@@ -1,5 +1,5 @@
 import { uploadRemoteWithConfig } from '@infinity-cli/ipublish';
-const core = require('@actions/core');
+import * as core from '@actions/core';
 
 async function run() {
   try {

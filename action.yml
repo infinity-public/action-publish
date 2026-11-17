@@ -29,5 +29,5 @@ inputs:
     description: 'Jump server password (optional)'
     required: false
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'lib/index.js'
