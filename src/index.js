@@ -21,7 +21,7 @@ async function run() {
       ip,
       user,
       password,
-      from: files.split(','),
+      from: files.split(',').map((file) => file.trim()).filter(Boolean),
       to: remotePath,
       cmd,
       jumpIp,
